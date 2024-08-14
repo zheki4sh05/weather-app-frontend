@@ -3,6 +3,6 @@ import { COOKIE_NAME } from "./apiPath";
 
 export async function getAuthData() {
     const cookieStore = cookies()
-    return cookieStore.has()
+    return cookieStore.has(COOKIE_NAME)
 
 }

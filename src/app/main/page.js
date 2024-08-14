@@ -15,24 +15,27 @@ async function MainPage({searchParams}) {
     weather = await makeDataRequest(value)
   }
 
-  weather = {
-    name:"Cloudy",
-    city:"Minsk",
-    dt:"10",
-    main:{
-      temp:"23",
-      humidity:"34"
-    },
-    weather:[
-      {
-        main:"main",
-        description:"description"
-      }
-    ],
-    wind:{
-      speed:"20"
-    }
-  }
+  // weather = {
+  //   name:"Cloudy",
+  //   city:"Minsk",
+  //   dt:"10",
+  //   lat:"23",
+  //   lon:"34",
+  //   main:{
+  //     temp:"23",
+  //     humidity:"34"
+  //   },
+  //   weather:[
+  //     {
+  //       main:"main",
+  //       description:"description",
+  //       icon:"10d"
+  //     }
+  //   ],
+  //   wind:{
+  //     speed:"20"
+  //   }
+  // }
 
 
   return (

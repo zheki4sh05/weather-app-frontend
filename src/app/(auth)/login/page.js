@@ -1,8 +1,10 @@
+import AuthForm from "@/components/auth/form";
+import LoginForm from './../../../components/auth/LoginForm';
 
 
 function SignIn() {
     return ( 
-      <p>Hello</p>
+      <LoginForm title={"Login"} />
      );
 }
 

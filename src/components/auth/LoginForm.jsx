@@ -1,17 +1,17 @@
 "use client"
-import { registerUserAction } from "@/data/actions/auth-actions";
+import { loginUserAction } from "@/data/actions/auth-actions";
 import { useFormState } from "react-dom";
 import { ZodErrors } from "../custom/ZodErrors";
 
-function AuthForm(props) {
+function LoginForm(props) {
     const INITIAL_STATE = {
         data: null,
       };
 
       
-    const [formState, formAction] = useFormState(registerUserAction, INITIAL_STATE);
+    const [formState, formAction] = useFormState(loginUserAction, INITIAL_STATE);
 
-    console.log(formState)
+
 
     return ( <form action={formAction}  style={{maxWidth:"400px",margin:"0 auto", marginTop:"2rem"}} >
         
@@ -35,8 +35,8 @@ function AuthForm(props) {
           </label>
         </div>
         <button className="btn btn-primary w-100 py-2" type="submit">{props.title}</button>
-        <p className="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+      
       </form> );
 }
 
-export default AuthForm;
+export default LoginForm;

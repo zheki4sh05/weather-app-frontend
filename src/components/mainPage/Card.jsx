@@ -1,15 +1,24 @@
 import { parseDate } from "@/lib/parseDate";
 import Link from "next/link";
 import MoreInfoBtn from "./CardButtons/MoreInfoBtn";
+import SaveInfoBtn from "./CardButtons/SaveInfoBtn";
+import DeleteButton from "./CardButtons/DeleteButton";
 
-function Card({ weather }) {
+export function getImgUrlByName(name){
+  return `http://openweathermap.org/img/w/${name}.png`
+}
+
+function Card({ weather, hasDeleteButton }) {
+  console.log(weather)
   return (
     <div className="row d-flex justify-content-center py-5">
       <div className="col-md-8 col-lg-6 col-xl-5">
         <div className="card text-body" style={{ borderRadius: 35 }}>
           <div className="card-body p-4">
             <div className="d-flex">
+            <h6 className="flex-grow-1"><strong>{weather.city}</strong></h6>
               <h6 className="flex-grow-1">{weather.name}</h6>
+              
               <h6>
                 {parseDate(weather.dt).getHours()}:
                 {parseDate(weather.dt).getMinutes()}
@@ -31,7 +40,7 @@ function Card({ weather }) {
               <div className="d-flex justify-content-end align-items-center ">
                 <div>
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+                    src={getImgUrlByName(weather.weather[0].icon)}
                     width="100px"
                   />
                 </div>
@@ -63,12 +72,22 @@ function Card({ weather }) {
                 </div>
               </div>
               <div className="d-flex justify-content-end flex-grow-1">
-              <Link href="/profile">
-                <button type="button" className="btn btn-outline-primary mx-2">
-                  Add
-                </button>
-                </Link>
-               <MoreInfoBtn param={weather.city} />
+                {hasDeleteButton ? (
+                  <DeleteButton id={weather.locId} />
+                ) : (
+                  <SaveInfoBtn
+                    weather={{
+                      city: weather.name,
+                      lon: weather.coord.lon,
+                      lat: weather.coord.lat,
+                    }}
+
+        
+
+                  />
+                )}
+
+                <MoreInfoBtn param={weather.city} />
               </div>
             </div>
           </div>

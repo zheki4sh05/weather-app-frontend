@@ -5,6 +5,7 @@ export async function registerUserService(userData) {
   const url = new URL(api.auth.signup, base);
 
   try {
+    console.log("запрос")
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -21,7 +22,7 @@ export async function registerUserService(userData) {
 }
 
 export async function loginUserService(userData) {
-  const url = new URL(api.auth.login, baseUrl);
+  const url = new URL(api.auth.login, base);
 
   try {
     const response = await fetch(url, {
@@ -33,7 +34,7 @@ export async function loginUserService(userData) {
       cache: "no-cache",
     });
 
-    return response.json();
+    return response;
   } catch (error) {
     console.error("Login Service Error:", error);
     throw error;

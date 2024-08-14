@@ -2,7 +2,7 @@
 
 import AuthForm from "@/components/auth/form";
 
-function SignUp() {
+async function SignUp() {
     return (<>
     <AuthForm title={"Sign Up"} />
     </>   );

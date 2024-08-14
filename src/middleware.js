@@ -6,8 +6,16 @@ export async function middleware(request) {
     const currentPath = request.nextUrl.pathname;
   
     if (currentPath.startsWith("/profile") && !data) {
-      return NextResponse.redirect(new URL("/signin", request.url));
+  
+      return NextResponse.redirect(new URL("/login", request.url));
+     
     }
+
+    // // if (currentPath.startsWith("/profile") && !data) {
+    //   return NextResponse.redirect(new URL("/login", request.url));
+    // }
+
+
   
     return NextResponse.next();
   }
