@@ -4,14 +4,15 @@ import { useRouter } from "next/navigation";
 
 function MoreInfoBtn({ param }) {
   const searchParams = useSearchParams();
+
   const { replace } = useRouter();
-  const router = useRouter();
   const pathname = usePathname();
 
   const handleSearch = () => {
    // router.push("/more");
 
     const params = new URLSearchParams(searchParams);
+
     //params.set("page", "1");
 
     if (params.has("value")) {

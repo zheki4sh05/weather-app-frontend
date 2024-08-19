@@ -3,12 +3,14 @@ import Link from "next/link";
 import MoreInfoBtn from "./CardButtons/MoreInfoBtn";
 import SaveInfoBtn from "./CardButtons/SaveInfoBtn";
 import DeleteButton from "./CardButtons/DeleteButton";
+import { fetchProfileData } from '@/data/actions/action-fetch';
 
 export function getImgUrlByName(name){
   return `http://openweathermap.org/img/w/${name}.png`
 }
 
-function Card({ weather, hasDeleteButton }) {
+async function Card({ weather, hasDeleteButton }) {
+  
   console.log(weather)
   return (
     <div className="row d-flex justify-content-center py-5">
@@ -81,13 +83,14 @@ function Card({ weather, hasDeleteButton }) {
                       lon: weather.coord.lon,
                       lat: weather.coord.lat,
                     }}
+                    data={await fetchProfileData()}
 
         
 
                   />
                 )}
 
-                <MoreInfoBtn param={weather.city} />
+                <MoreInfoBtn param={weather.name} />
               </div>
             </div>
           </div>

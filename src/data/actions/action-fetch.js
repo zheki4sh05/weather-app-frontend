@@ -8,8 +8,6 @@ export async function fetchProfileData(){
 
     const cookieStore = cookies();
 
-   console.log(cookieStore.get(COOKIE_NAME))
-
    let name = cookieStore.get(COOKIE_NAME).name;
    let value = cookieStore.get(COOKIE_NAME).value;
 
@@ -20,7 +18,8 @@ export async function fetchProfileData(){
           },
          
     }, { next: { tags: [weatherData] } })
-    console.log(res)
     return res.json();
 
 }
+
+

@@ -4,37 +4,7 @@ import Card from "../mainPage/Card";
 async function ProfilePage() {
 
     const data = await fetchProfileData()
-    console.log("-----------")
-    console.log(data)
-
-    // let weather = {
-    //     id:1,
-    //     name:"Cloudy",
-    //     city:"Minsk",
-    //     dt:"10",
-    //     lat:"23",
-    //     lon:"34",
-    //     main:{
-    //       temp:"23",
-    //       humidity:"34"
-    //     },
-    //     weather:[
-    //       {
-    //         main:"main",
-    //         description:"description"
-    //       }
-    //     ],
-    //     wind:{
-    //       speed:"20"
-    //     }
-    //   }
-
-    //   const data = [
-    //     weather
-    //   ]
-    
-
-    return ( 
+         return ( 
     <div className="d-flex flex-column" >
 
         {

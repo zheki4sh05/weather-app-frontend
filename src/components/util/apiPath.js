@@ -5,6 +5,7 @@ const api={
 
     weather:{
         get:base.concat("weather"),
+        more:base.concat("weather/more")
     },
     user:{
         post:base.concat("user"),

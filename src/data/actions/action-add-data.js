@@ -41,12 +41,10 @@ export async function addWeatherData(prevState, formData){
       
       try {
 
-        let response = await saveData(formData, cookieStore.get(COOKIE_NAME))
-
-        redirect("/profile")
+       let response = await saveData(formData, cookieStore.get(COOKIE_NAME))
 
      } catch (error) {
-       
+    
      }
      
     }else{
@@ -61,22 +59,7 @@ export async function addWeatherData(prevState, formData){
 
     }
 
-    // try {
-
-    //      response = await fetch(url, {
-    //         method: "POST",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //           "Cookie":`${name}=${value}`
-    //         },
-    //         body: JSON.stringify({ ...userData }),
-    //         cache: "no-cache",
-    //       }).then(actionReval(weatherData));
-
-
-    //   } catch (error) {
-        
-    //   }
+ 
 
     
 

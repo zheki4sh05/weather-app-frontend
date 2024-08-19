@@ -1,26 +1,10 @@
 import { schemaSearchInput } from "@/lib/schema";
 import { makeDataRequest } from "../services/makeDataRequest";
+import api from "@/components/util/apiPath";
 
 export async function searchDataAction(data) {
-
-
-    // const validatedFields = schemaSearchInput.safeParse({
-    //   value: data,
-    // });
-  
-    // if (!validatedFields.success) {
-    //   return {
-    //     zodErrors: validatedFields.error.flatten().fieldErrors,
-    //     strapiErrors: null,
-    //     message: "Enter city/country name!",
-    //   };
-    // }
   
     const responseData = await makeDataRequest(data);
-
-    console.log("!!!!")
-
-    console.log(responseData)
   
     if (!responseData) {
       return {
@@ -42,3 +26,24 @@ export async function searchDataAction(data) {
   return responseData.json()
   
   }
+
+  export async function fetchMoreWeatherData(value) {
+    
+    try {
+      const response = await fetch(api.weather.more +"?"+ new URLSearchParams({
+        value: value,
+    }).toString(), { cache:"no-cache" });
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const json = await response.json();
+      return json;
+     
+    } catch (error) {
+      console.error(error.message);
+    }
+
+  }
+
+
