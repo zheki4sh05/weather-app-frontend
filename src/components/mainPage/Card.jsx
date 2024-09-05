@@ -3,24 +3,28 @@ import Link from "next/link";
 import MoreInfoBtn from "./CardButtons/MoreInfoBtn";
 import SaveInfoBtn from "./CardButtons/SaveInfoBtn";
 import DeleteButton from "./CardButtons/DeleteButton";
-import { fetchProfileData } from '@/data/actions/action-fetch';
+import { fetchProfileData } from "@/data/actions/action-fetch";
+import { hasCookie } from "@/data/actions/getCookie";
+import { resolve } from "styled-jsx/css";
+import { cookies } from "next/headers";
+import { COOKIE_NAME } from "../util/apiPath";
 
-export function getImgUrlByName(name){
-  return `http://openweathermap.org/img/w/${name}.png`
+export function getImgUrlByName(name) {
+  return `http://openweathermap.org/img/w/${name}.png`;
 }
 
 async function Card({ weather, hasDeleteButton }) {
-  
-  console.log(weather)
   return (
     <div className="row d-flex justify-content-center py-5">
       <div className="col-md-8 col-lg-6 col-xl-5">
         <div className="card text-body" style={{ borderRadius: 35 }}>
           <div className="card-body p-4">
             <div className="d-flex">
-            <h6 className="flex-grow-1"><strong>{weather.city}</strong></h6>
+              <h6 className="flex-grow-1">
+                <strong>{weather.city}</strong>
+              </h6>
               <h6 className="flex-grow-1">{weather.name}</h6>
-              
+
               <h6>
                 {parseDate(weather.dt).getHours()}:
                 {parseDate(weather.dt).getMinutes()}
@@ -76,7 +80,7 @@ async function Card({ weather, hasDeleteButton }) {
               <div className="d-flex justify-content-end flex-grow-1">
                 {hasDeleteButton ? (
                   <DeleteButton id={weather.locId} />
-                ) : (
+                ) : cookies().has(COOKIE_NAME) ? (
                   <SaveInfoBtn
                     weather={{
                       city: weather.name,
@@ -84,11 +88,8 @@ async function Card({ weather, hasDeleteButton }) {
                       lat: weather.coord.lat,
                     }}
                     data={await fetchProfileData()}
-
-        
-
                   />
-                )}
+                ) : null}
 
                 <MoreInfoBtn param={weather.name} />
               </div>

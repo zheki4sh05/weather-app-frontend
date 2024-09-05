@@ -56,7 +56,7 @@ async function Profile() {
   return (
     <div>
       <div className="d-flex justify-content-around align-middle mt-3">
-        {!cookieStore.has() ? content() : header()}
+        {cookieStore.has() ? content() : header()}
       </div>
     </div>
   );

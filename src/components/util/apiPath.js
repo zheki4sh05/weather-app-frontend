@@ -4,8 +4,7 @@ export const  base="http://localhost:8080/";
 const api={
 
     weather:{
-        get:base.concat("weather"),
-        more:base.concat("weather/more")
+        get:base.concat("weather")
     },
     user:{
         post:base.concat("user"),

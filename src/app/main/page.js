@@ -49,11 +49,9 @@ async function MainPage({searchParams}) {
           !weather ? 
           <p> nothing added...</p>
           :
-          <Card weather={weather}/>
+          <Card weather={weather} hasDeleteButton={false}/>
 
-        }
-
-       
+        }  
       
       </div>
     </React.Fragment>

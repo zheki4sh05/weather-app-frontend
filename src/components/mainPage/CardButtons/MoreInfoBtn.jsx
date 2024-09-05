@@ -9,11 +9,8 @@ function MoreInfoBtn({ param }) {
   const pathname = usePathname();
 
   const handleSearch = () => {
-   // router.push("/more");
-
+  
     const params = new URLSearchParams(searchParams);
-
-    //params.set("page", "1");
 
     if (params.has("value")) {
       params.delete("value");

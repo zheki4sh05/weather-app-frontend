@@ -20,6 +20,7 @@ export async function makeDataRequest(data) {
     try {
       const response = await fetch(api.weather.get +"?"+ new URLSearchParams({
         city: data,
+        action:"search"
     }).toString(), { cache:"no-cache" });
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);

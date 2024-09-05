@@ -7,11 +7,11 @@ async function MoreWeatherInfo({searchParams}) {
     <div className='d-flex flex-column'>
         <div className='d-flex flex-column my-3' >
             
-            <h4>7 days weather for <strong>{cityName}</strong></h4>
+            <h4>5 days weather for <strong>{cityName}</strong></h4>
             <hr className="border border-primary border-2 opacity-60" />
         </div>
         
-         <MorePage value={cityName} currentPage="/main"/>
+         <MorePage value={cityName} currentPage={"/main"}/>
     </div>
    
 );

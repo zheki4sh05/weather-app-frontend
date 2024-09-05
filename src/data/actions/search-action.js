@@ -27,11 +27,12 @@ export async function searchDataAction(data) {
   
   }
 
-  export async function fetchMoreWeatherData(value) {
+  export async function fetchMoreWeatherData(city) {
     
     try {
-      const response = await fetch(api.weather.more +"?"+ new URLSearchParams({
-        value: value,
+      const response = await fetch(api.weather.get +"?"+ new URLSearchParams({
+        action:"more",
+        city: city
     }).toString(), { cache:"no-cache" });
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);

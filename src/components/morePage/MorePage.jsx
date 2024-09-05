@@ -11,6 +11,10 @@ async function MorePage({value,currentPage}) {
         <div className="d-flex">
             <BackButton backToPageName={currentPage} />
         </div>
+
+        
+
+        
        
 
     </div> 
